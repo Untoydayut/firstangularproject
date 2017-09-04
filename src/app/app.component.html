@@ -1,13 +1,29 @@
-<div>
-  <label>Student Number</label><input type="text" [(ngModel)] ="studNo"><br>
-  <label>Student First Name</label><input type="text" [(ngModel)] ="studFname"><br>
-  <label>Student Last Name</label><input type="text" [(ngModel)] ="studLname"><br>
-  <label>Student Program</label><input type="text" [(ngModel)] ="studProg"><br>
-  <label>Student Year</label><input type="text" [(ngModel)] ="studYr"><br>
+
+<form (ngModel)="onAdd(regForm)" #regForm="ngForm">
+<div class="form-group">
+    <label for="studNo">Student Number</label>
+    <input type="text" id="studNo"
+    class="form-control" ngModel name="studNo" required pattern="[0-9]+" #studNo="ngModel"><span ngModel name="vstudNo"><br>
+
+    <label for="studFname">Student First Name</label>
+    <input type="text" id="studFname"
+    class="form-control" ngModel name="studFname" required pattern="[A-z]+" #studFname="ngModel"><br>
+
+    <label for="studLname">Student Last Name</label>
+    <input type="text" id="studLname"
+    class="form-control" ngModel name="studLname" required pattern="[A-z]+" #studLname="ngModel"><br>
+
+    <label for="studProg">Student Program</label>
+    <input type="text" id="studProg"
+    class="form-control" ngModel name="studProg" required pattern="[A-Z]{4}" #studProg="ngModel"><br>
+
+    <label for="studYr">Student Year</label>
+    <input type="text" id="studYr"
+    class="form-control" ngModel name="studYr" required pattern="[1-4]{1}" #studYr="ngModel"><br>
 </div>
 <div id="options">
-  <button id="addStudents" (click)="addStudentEntry()">Add Student Entry</button>
-  <button id="listStudents" (click)="listStudents()">listStudents</button>
+  <button class="btn-addStudents" type="submit">Add Student Entry</button>
+  <button class="btn-listStudents" type="submit">listStudents</button>
 </div>
 <div>
   {{ messages }}
@@ -34,3 +50,4 @@
       </tbody>
   </table>
 </div>
+</form>
